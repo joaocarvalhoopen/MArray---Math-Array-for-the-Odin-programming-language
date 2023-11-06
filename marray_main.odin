@@ -5,6 +5,14 @@ import "core:fmt"
 
 MA :: ma.MA
 
+// Method convention legend:
+// pxxx( c )         <- Point operation, operation on each element of the matrix,
+//                      equivalent to Julia's ".+", ".-", ".*" operations.
+// xxxx_a( c )       <- Allocates array MA< T >
+// xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >
+// xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and
+//                      returns parameter t array MA< T >
+
 main :: proc () {
   
     a : MA( f32 ) = ma.create( f32, []int{ 2, 3 }, 2.5 )

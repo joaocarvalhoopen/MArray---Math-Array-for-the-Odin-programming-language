@@ -27,6 +27,20 @@ The sky, my imagination and my free time are the limit. I'm not a expert in any 
 ## How to use MArray library
 I have made extensive unit tests, and they are made to test from the outside and not from the inside of the library. So you can use them as examples, of how to use each function. The tests are made from a separate package. I have also added a lot of comments in the code for each function.
 
+## Function convention
+
+```
+Method convention legend:
+pxxx( c )         <- Point operation, operation on each element of
+                     the matrix, equivalent to Julia's ".+", ".-",
+                     ".*" operations.
+xxxx_a( c )       <- Allocates array MA< T >
+xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter
+                     array MA< T >
+xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t
+                     and returns parameter t array MA< T >
+```
+
 ## License
 MIT Open Source License
 

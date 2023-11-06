@@ -10,6 +10,15 @@ import "core:fmt"
 import "core:runtime"
 
 
+// Method convention legend:
+// pxxx( c )         <- Point operation, operation on each element of the matrix,
+//                      equivalent to Julia's ".+", ".-", ".*" operations.
+// xxxx_a( c )       <- Allocates array MA< T >
+// xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >
+// xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and
+//                      returns parameter t array MA< T >
+
+
 // point apply mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".

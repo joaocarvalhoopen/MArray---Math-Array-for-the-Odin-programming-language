@@ -38,7 +38,7 @@ import "core:math"
 
 // Method convention legend:
 // pxxx( c )         <- Point operation, operation on each element of the matrix,
-//                      equaivalente to Julia's ".+", ".-", ".*" operations.
+//                      equivalent to Julia's ".+", ".-", ".*" operations.
 // xxxx_a( c )       <- Allocates array MA< T >
 // xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >
 // xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and

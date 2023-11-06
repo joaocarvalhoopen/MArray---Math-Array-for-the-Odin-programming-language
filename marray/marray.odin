@@ -58,10 +58,12 @@ import "core:runtime"
 
 
 // Method convention legend:
-// xxxx_a( c ) -> a        <- Allocates array MA< T >
-// xxxx_m( a, b ) -> a     <- Mutates a parameter array and returns a parameter array MA< T >
-// xxxx_t( t, a, b ) -> t  <- Makes the operation and writes into parameter t and returns parameter t array MA< T >
-
+// pxxx( c )         <- Point operation, operation on each element of the matrix,
+//                      equivalent to Julia's ".+", ".-", ".*" operations.
+// xxxx_a( c )       <- Allocates array MA< T >
+// xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >
+// xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and
+//                      returns parameter t array MA< T >
 
 // For indexs
 beg : int : 0

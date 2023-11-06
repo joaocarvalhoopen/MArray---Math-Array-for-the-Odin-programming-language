@@ -11,7 +11,7 @@ import "core:runtime"
 
 
 // Method convention legend:
-// pxxx( c )         <- Point operation, operation on each element of the matrix,
+// pxxxx( c )         <- Point operation, operation on each element of the matrix,
 //                      equivalent to Julia's ".+", ".-", ".*" operations.
 // xxxx_a( c )       <- Allocates array MA< T >
 // xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >

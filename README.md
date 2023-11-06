@@ -31,7 +31,7 @@ I have made extensive unit tests, and they are made to test from the outside and
 
 ```
 Method convention legend:
-pxxx( c )         <- Point operation, operation on each element of
+pxxxx( c )         <- Point operation, operation on each element of
                      the matrix, equivalent to Julia's ".+", ".-",
                      ".*" operations.
 xxxx_a( c )       <- Allocates array MA< T >

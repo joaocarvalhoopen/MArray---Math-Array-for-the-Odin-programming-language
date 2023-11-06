@@ -37,9 +37,12 @@ import "core:math"
 
 
 // Method convention legend:
+// pxxx( c )         <- Point operation, operation on each element of the matrix,
+//                      equaivalente to Julia's ".+", ".-", ".*" operations.
 // xxxx_a( c )       <- Allocates array MA< T >
 // xxxx_m( a, b )    <- Mutates a parameter array and returns a parameter array MA< T >
-// xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and returns parameter t array MA< T >
+// xxxx_t( t, a, b ) <- Makes the operation and writes into parameter t and
+//                      returns parameter t array MA< T >
 
 @(test)
 test_gen_simple_001 :: proc(test: ^tc.T) {
@@ -51,7 +54,7 @@ test_gen_simple_001 :: proc(test: ^tc.T) {
     b := ma.create( f32, []int{ 2, 3 }, 1.5 )
     defer ma.del( & b )
 
-    c := ma.sum_m( & a, b )
+    c := ma.psum_m( & a, b )
 
     correct_value: f32 = 2.5 + 1.5
 

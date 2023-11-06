@@ -10,18 +10,18 @@ import "core:fmt"
 import "core:runtime"
 
 
-// apply mutable that sums the a with the b parameter
+// point apply mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".
-apply_m :: proc ( a : ^MA( $T ), b: MA( T ), func : proc ( a : T, b: T ) -> T ) -> MA( T ) 
+papply_m :: proc ( a : ^MA( $T ), b: MA( T ), func : proc ( a : T, b: T ) -> T ) -> MA( T ) 
 where intrinsics.type_is_numeric( T ) {
-    b := sum_t( a, a^, b )
+    b := psum_t( a, a^, b )
     return b
 }
 
-// apply into "t target", "a" and parameter "b",
+// point apply into "t target", "a" and parameter "b",
 // returning "t".
-apply_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ), func : proc ( a : T, b: T ) -> T ) -> MA( T )
+papply_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ), func : proc ( a : T, b: T ) -> T ) -> MA( T )
 where intrinsics.type_is_numeric( T ) {
     for i in 0 ..< len( a.data ) {
         t^.data[ i ] = func( a.data[ i ], b.data[ i ] )
@@ -32,12 +32,12 @@ where intrinsics.type_is_numeric( T ) {
 // ############################################################################
 // ############################################################################
 
-// sum mutable that sums the a with the b parameter
+// point sum mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".
-sum_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
+psum_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
 where intrinsics.type_is_numeric( T ) {
-    b := sum_t( a, a^, b )
+    b := psum_t( a, a^, b )
     return b
 
     // for i in 0 ..< len( a.data ) {
@@ -46,9 +46,9 @@ where intrinsics.type_is_numeric( T ) {
     // return b
 }
 
-// sum into "t target", "a" and parameter "b",
+// point sum into "t target", "a" and parameter "b",
 // returning "t".
-sum_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
+psum_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
 where intrinsics.type_is_numeric( T ) {
     for i in 0 ..< len( a.data ) {
         t^.data[ i ] = a.data[ i ] + b.data[ i ]
@@ -56,18 +56,18 @@ where intrinsics.type_is_numeric( T ) {
     return t^
 }
 
-// sub mutable that sums the a with the b parameter
+// point sub mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".
-sub_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
+psub_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
 where intrinsics.type_is_numeric( T ) {
-    b := sub_t( a, a^, b )
+    b := psub_t( a, a^, b )
     return b
 }
 
-// sub into "t target", "a" and parameter "b",
+// point sub into "t target", "a" and parameter "b",
 // returning "t".
-sub_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
+psub_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
 where intrinsics.type_is_numeric( T ) {
     for i in 0 ..< len( a.data ) {
         t^.data[ i ] = a.data[ i ] - b.data[ i ]
@@ -75,18 +75,18 @@ where intrinsics.type_is_numeric( T ) {
     return t^
 }
 
-// mul mutable that sums the a with the b parameter
+// point mul mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".
-mul_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
+pmul_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
 where intrinsics.type_is_numeric( T ) {
-    b := mul_t( a, a^, b )
+    b := pmul_t( a, a^, b )
     return b
 }
 
-// mul into "t target", "a" and parameter "b",
+// point mul into "t target", "a" and parameter "b",
 // returning "t".
-mul_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
+pmul_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
 where intrinsics.type_is_numeric( T ) {
     for i in 0 ..< len( a.data ) {
         t^.data[ i ] = a.data[ i ] * b.data[ i ]
@@ -94,18 +94,18 @@ where intrinsics.type_is_numeric( T ) {
     return t^
 }
 
-// div mutable that sums the a with the b parameter
+// point div mutable that sums the a with the b parameter
 // and puts the result into parameter "a",
 // return "a".
-div_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
+pdiv_m :: proc ( a : ^MA( $T ), b: MA( T ) ) -> MA( T ) 
 where intrinsics.type_is_numeric( T ) {
-    b := div_t( a, a^, b )
+    b := pdiv_t( a, a^, b )
     return b
 }
 
-// div into "t target", "a" and parameter "b",
+// point div into "t target", "a" and parameter "b",
 // returning "t".
-div_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
+pdiv_t :: proc ( t : ^MA( $T ), a : MA( T ), b : MA( T ) ) -> MA( T )
 where intrinsics.type_is_numeric( T ) {
     for i in 0 ..< len( a.data ) {
         t^.data[ i ] = a.data[ i ] / b.data[ i ]
